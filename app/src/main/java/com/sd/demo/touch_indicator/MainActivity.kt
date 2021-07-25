@@ -18,8 +18,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(_binding.root)
 
         _binding.viewTouchIndicator.setIndexChangeCallback { index, view ->
-            Log.i(TAG, "onIndexChanged ${index}")
             val text = if (view is TextView) view.text.toString() else ""
+            Log.i(TAG, "onIndexChanged ${index} ${text}")
+
             if (view != null) {
                 _binding.viewTouchIndicator.setBackgroundColor(Color.parseColor("#EEEEEE"))
                 _binding.tvText.apply {
