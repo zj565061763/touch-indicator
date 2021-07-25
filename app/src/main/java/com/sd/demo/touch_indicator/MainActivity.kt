@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.sd.demo.touch_indicator.databinding.ActivityMainBinding
+import com.sd.lib.touchin.FTouchIndicatorView
 
 class MainActivity : AppCompatActivity() {
     private val TAG = MainActivity::class.java.simpleName
@@ -16,6 +17,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_binding.root)
+
+        _binding.viewTouchIndicator.setTextBuilder(FTouchIndicatorView.TextBuilder().apply {
+            this.setTextSize(13)
+            this.setTextColorNormal(Color.BLACK)
+            this.setTextColorSelected(Color.GREEN)
+            this.setItemMargin(10)
+        })
 
         _binding.viewTouchIndicator.setIndexChangeCallback { index, view ->
             val text = if (view is TextView) view.text.toString() else ""
