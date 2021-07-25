@@ -216,9 +216,9 @@ public class FTouchIndicatorView extends LinearLayout {
 
             final List<View> list = new ArrayList<>(size);
             if (array != null) {
-                for (int i = 0; i < size; i++) {
+                for (String item : array) {
                     final TextView textView = createTextView(context);
-                    textView.setText(array[i]);
+                    textView.setText(item);
                     list.add(textView);
                 }
             }
