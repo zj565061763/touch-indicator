@@ -22,6 +22,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="搜索"
             android:textColor="@color/lib_touchin_text_color_indicator"
             android:textSize="15sp" />
@@ -29,6 +31,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="A"
             android:textColor="@color/lib_touchin_text_color_indicator"
             android:textSize="15sp" />
@@ -36,6 +40,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="B"
             android:textColor="@color/lib_touchin_text_color_indicator"
             android:textSize="15sp" />
@@ -43,6 +49,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="C"
             android:textColor="@color/lib_touchin_text_color_indicator"
             android:textSize="15sp" />
@@ -50,6 +58,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="#"
             android:textColor="@color/lib_touchin_text_color_indicator"
             android:textSize="15sp" />
