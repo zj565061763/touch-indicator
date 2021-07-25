@@ -19,8 +19,6 @@ import java.util.List;
 public class FTouchIndicatorView extends LinearLayout {
     /** 当前触摸的位置 */
     private int mCurrentIndex = -1;
-    /** Item之间的间距 */
-    private int mItemMargin = 0;
 
     private IndexChangeCallback mCallback;
 
@@ -32,7 +30,6 @@ public class FTouchIndicatorView extends LinearLayout {
         super(context, attrs);
         setOrientation(LinearLayout.VERTICAL);
         setGravity(Gravity.CENTER);
-        setItemMargin(dp2px(4, context));
     }
 
     /**
@@ -59,42 +56,13 @@ public class FTouchIndicatorView extends LinearLayout {
     }
 
     /**
-     * 设置Item之间的间距
-     */
-    public void setItemMargin(int margin) {
-        if (mItemMargin != margin) {
-            mItemMargin = margin;
-            updateItemMargin();
-        }
-    }
-
-    private int getItemMargin() {
-        return mItemMargin / 2;
-    }
-
-    /**
      * 设置TextView构建对象
      */
     public void setTextBuilder(@NonNull TextBuilder builder) {
         removeAllViews();
         final List<View> list = builder.build(getContext());
-
-        final int margin = getItemMargin();
         for (View view : list) {
-            view.setPadding(0, margin, 0, margin);
             addView(view);
-        }
-    }
-
-    /**
-     * 更新Item间距
-     */
-    private void updateItemMargin() {
-        final int count = getChildCount();
-        final int margin = getItemMargin();
-        for (int i = 0; i < count; i++) {
-            final View view = getChildAt(i);
-            view.setPadding(0, margin, 0, margin);
         }
     }
 
@@ -174,7 +142,8 @@ public class FTouchIndicatorView extends LinearLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if (getChildCount() <= 0) {
-            setTextBuilder(new TextBuilder());
+            setTextBuilder(new TextBuilder()
+                    .setItemMargin(dp2px(2, getContext())));
         }
     }
 
@@ -190,6 +159,8 @@ public class FTouchIndicatorView extends LinearLayout {
         int mTextColorNormal = Color.BLACK;
         /** 正常字体颜色 */
         int mTextColorSelected = Color.RED;
+        /** Item之间的间距 */
+        int mItemMargin = 0;
         /** 文字数组 */
         String[] mTextArray = new String[]{
                 "A", "B", "C", "D", "E", "F", "G",
@@ -219,6 +190,14 @@ public class FTouchIndicatorView extends LinearLayout {
          */
         public TextBuilder setTextColorSelected(int textColorSelected) {
             mTextColorSelected = textColorSelected;
+            return this;
+        }
+
+        /**
+         * 设置Item之间的间距
+         */
+        public TextBuilder setItemMargin(int itemMargin) {
+            mItemMargin = itemMargin;
             return this;
         }
 
@@ -261,6 +240,9 @@ public class FTouchIndicatorView extends LinearLayout {
             textView.setGravity(Gravity.CENTER);
             textView.setTextSize(mTextSize);
             textView.setTextColor(mTextColorNormal);
+
+            final int margin = mItemMargin / 2;
+            textView.setPadding(0, margin, 0, margin);
             return textView;
         }
     }
