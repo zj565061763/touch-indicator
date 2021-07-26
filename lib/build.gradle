@@ -5,8 +5,8 @@ plugins {
 
 def libGroupId = "com.sd.lib.android"
 def libArtifactId = "touch-indicator"
-def libVersionCode = 20210725
-def libVersionName = "1.0.0-alpha01"
+def libVersionCode = 20210726
+def libVersionName = "1.0.0-alpha02"
 
 android {
     compileSdkVersion 30
