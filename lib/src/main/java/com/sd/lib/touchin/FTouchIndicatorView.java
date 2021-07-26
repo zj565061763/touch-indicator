@@ -154,7 +154,7 @@ public class FTouchIndicatorView extends LinearLayout {
 
     public static class TextBuilder {
         /** 字体大小（sp） */
-        int mTextSize = 13;
+        int mTextSize = 12;
         /** 正常字体颜色 */
         int mTextColorNormal = Color.BLACK;
         /** 正常字体颜色 */
@@ -162,12 +162,7 @@ public class FTouchIndicatorView extends LinearLayout {
         /** Item之间的间距 */
         int mItemMargin = 0;
         /** 文字数组 */
-        String[] mTextArray = new String[]{
-                "A", "B", "C", "D", "E", "F", "G",
-                "H", "I", "J", "K", "L", "M", "N",
-                "O", "P", "Q", "R", "S", "T", "U",
-                "V", "W", "X", "Y", "Z"
-        };
+        String[] mTextArray = null;
 
         /**
          * 设置字体大小（sp）
@@ -194,7 +189,7 @@ public class FTouchIndicatorView extends LinearLayout {
         }
 
         /**
-         * 设置Item之间的间距
+         * 设置Item之间的间距（px）
          */
         public TextBuilder setItemMargin(int itemMargin) {
             mItemMargin = itemMargin;
@@ -237,6 +232,7 @@ public class FTouchIndicatorView extends LinearLayout {
                     }
                 }
             };
+            textView.setIncludeFontPadding(false);
             textView.setGravity(Gravity.CENTER);
             textView.setTextSize(mTextSize);
             textView.setTextColor(mTextColorNormal);

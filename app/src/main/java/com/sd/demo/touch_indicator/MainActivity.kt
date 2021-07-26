@@ -19,10 +19,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(_binding.root)
 
         _binding.viewTouchIndicator.setTextBuilder(FTouchIndicatorView.TextBuilder().apply {
-            this.setTextSize(13)
+            this.setTextSize(12)
             this.setTextColorNormal(Color.BLACK)
             this.setTextColorSelected(Color.GREEN)
-            this.setItemMargin(10)
+            this.setTextArray(
+                arrayOf(
+                    "A", "B", "C", "D", "E", "F", "G",
+                    "H", "I", "J", "K", "L", "M", "N",
+                    "O", "P", "Q", "R", "S", "T", "U",
+                    "V", "W", "X", "Y", "Z"
+                )
+            )
         })
 
         _binding.viewTouchIndicator.setIndexChangeCallback { index, view ->
